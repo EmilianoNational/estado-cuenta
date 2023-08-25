@@ -26,12 +26,16 @@ body {
     -webkit-print-color-adjust:exact;
 }
 
+p {
+    margin: 10px 0;
+}
+
 ul {
     padding: 0;
 }
 
 .container {
-    padding: 20px 30px;
+    padding: 20px 30px 15px;
 }
 
 .header {
@@ -76,10 +80,11 @@ ul {
 }
 
 .gray-container h1 {
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Majorant-bold';
+    margin: 14px 0;
 }
 
 .gray-container span {
@@ -87,7 +92,7 @@ ul {
 }
 
 .last-info {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .last-info p {
