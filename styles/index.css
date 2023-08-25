@@ -26,6 +26,10 @@ body {
     -webkit-print-color-adjust:exact;
 }
 
+p {
+    margin: 10px 0;
+}
+
 ul {
     padding: 0;
 }
@@ -172,7 +176,6 @@ ul {
 
 .upper-row {
     display: flex;
-    gap: 1px;
 }
 
 .upper-row div {
@@ -184,6 +187,10 @@ ul {
     text-align: center;
 }
 
+.upper-row div:first-child {
+    border-right: 2px solid #fff;
+}
+
 
 .bottom-row {
     display: flex;
@@ -191,7 +198,10 @@ ul {
 
 .bottom-row div:first-child {
     text-align: center;
-    border: 1px solid #0276DD;
+    border-left: 1px solid #0276DD;
+    border-top: 1px solid #0276DD;
+    border-right: 2px solid #0276DD;
+    border-bottom: 1px solid #0276DD;
     width: 50%;
     font-family: 'CircularStd';
     padding: 0 20px;
@@ -249,8 +259,9 @@ ul {
   
   /* Style for each grid item */
   .grid-item {
-    padding: 10px;
+    padding: 5px 10px;
     text-align: center;
+    font-size: 12px;
   }
 
   .up {
