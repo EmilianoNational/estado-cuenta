@@ -22,6 +22,8 @@ body {
     font-family: 'CircularStd';
     margin: 0;
     padding: 0;
+    print-color-adjust:exact;
+    -webkit-print-color-adjust:exact;
 }
 
 ul {
@@ -89,9 +91,13 @@ ul {
 
 .last-info p {
     text-align: center;
-    font-family: 'Majorant-bold';
+    font-family: 'Majorant-regular';
     color: rgba(0, 48, 87, 1);
     padding-bottom: 20px;
+}
+
+.last-info span {
+    font-family: 'Majorant-bold';
 }
 
 .footer {
