@@ -53,6 +53,238 @@ ul {
     text-transform: uppercase;
 }
 
+.first-row {
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 48, 87, 1);
+}
+
+.date {
+    align-self: flex-end;
+}
+
+.gray-container {
+    background-color: #e4e4e3;
+    border-radius: 35px;
+    padding: 20px 30px;
+    /* box-shadow: 0px 10px 6px 0px rgba(0,0,0,0.1); */
+    display: flex;
+    
+}
+
+.gray-container-left,
+.gray-container-right {
+    font-family: 'CircularStd-bold';
+    width: 50%;
+}
+
+.second-row {
+    display: flex;
+    padding: 40px 0 60px;
+    gap: 40px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.saldo-anterior-container,
+.blue-container {
+    display: flex;
+    padding-bottom: 30px;
+}
+
+.saldo-anterior-container div:first-child {
+    color: #fff;
+    background-color: rgba(0, 48, 87, 1);
+    border: 1px solid rgba(0, 48, 87, 1);
+    width: 50%;
+    padding: 0 20px;
+    font-family: 'Majorant-bold';
+}
+
+.saldo-anterior-container div:last-child {
+    text-align: center;
+    border: 1px solid rgba(0, 48, 87, 1);
+    width: 50%;
+    font-family: 'CircularStd';
+}
+
+.movimientos-mes {
+    display: flex;
+    flex-direction: column
+}
+
+.movimientos-mes h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgba(0, 48, 87, 1);
+    font-family: 'Majorant-bold';
+}
+
+.movimientos-tabla {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabla-item {
+    display: flex;
+}
+
+.tabla-item .objeto {
+    color: #fff;
+    background-color: rgba(0, 48, 87, 1);
+    border-bottom: 1px solid #fff;
+    width: 50%;
+    padding: 0 20px;
+    font-family: 'Majorant-bold';
+}
+
+.tabla-item .precio {
+    text-align: center;
+    border: 1px solid rgba(0, 48, 87, 1);
+    width: 50%;
+    font-family: 'CircularStd';
+}
+
+.tabla-item .precio-bold {
+    text-align: center;
+    border: 1px solid rgba(0, 48, 87, 1);
+    width: 50%;
+    font-family: 'CircularStd-bold';
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.mini-table {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 44px;
+}
+
+.upper-row {
+    display: flex;
+    gap: 1px;
+}
+
+.upper-row div {
+    color: #fff;
+    background-color: #0276DD;
+    width: 50%;
+    padding: 0 20px;
+    font-family: 'Majorant-bold';
+    text-align: center;
+}
+
+
+.bottom-row {
+    display: flex;
+}
+
+.bottom-row div:first-child {
+    text-align: center;
+    border: 1px solid #0276DD;
+    width: 50%;
+    font-family: 'CircularStd';
+    padding: 0 20px;
+}
+
+.bottom-row div:last-child {
+    text-align: center;
+    border: 1px solid #0276DD;
+    border-left: none;
+    width: 50%;
+    font-family: 'CircularStd';
+    padding: 0 20px;
+}
+
+.blue-container div:first-child {
+    color: #fff;
+    background-color: #0276DD;
+    width: 50%;
+    padding: 0 20px;
+    font-family: 'Majorant-bold';
+    text-align: center;
+}
+
+.blue-container div:last-child {
+    text-align: center;
+    border: 1px solid #0276DD;
+    width: 50%;
+    font-family: 'CircularStd';
+    padding: 0 20px;
+}
+
+.fecha-limite p {
+    text-transform: uppercase;
+    color: rgba(0, 48, 87, 1);
+    font-family: 'Majorant-bold';
+}
+
+.produccion-mes {
+    display: flex;
+    flex-direction: column;
+}
+
+.produccion-mes p {
+    text-align: center;
+    font-family: 'Majorant-bold';
+    color: rgba(0, 48, 87, 1);
+    padding-bottom: 20px;
+}
+
+.produccion-title {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: rgba(0, 48, 87, 1);
+    font-family: 'Majorant-bold';
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr); /* 11 columns with equal width */
+    padding-bottom: 30px;
+  }
+  
+  /* Style for each grid item */
+  .grid-item {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .up {
+    color: #fff;
+    background-color: rgba(0, 48, 87, 1);
+    /* border-left: 1px solid #fff; */
+    border-right: 1px solid #fff;
+  }
+
+  .up div {
+    font-family: 'Majorant';
+  }
+
+  .down {
+    border-right: 1px solid rgba(0, 48, 87, 1);
+    border-bottom: 1px solid rgba(0, 48, 87, 1);
+  }
+
+    .down-first {
+    border-left: 1px solid rgba(0, 48, 87, 1);
+    border-bottom: 1px solid rgba(0, 48, 87, 1);
+    border-right: 1px solid rgba(0, 48, 87, 1);
+  }
+
+  .down div {
+    font-family: 'CircularStd';
+  }
+
+
 
 
 .footer {
