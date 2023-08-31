@@ -1,0 +1,19 @@
+{
+    "name": "natio/estado-cuenta",
+    "description": "Proyecto para imprimir en pdf los estados de cuenta",
+    "autoload": {
+        "psr-4": {
+            "Natio\\EstadoCuenta\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Natio y Emiliano"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^2.0",
+        "tecnickcom/tcpdf": "^6.6",
+        "mpdf/mpdf": "^8.1"
+    }
+}
