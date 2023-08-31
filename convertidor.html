@@ -26,23 +26,23 @@
             var iframe = document.createElement('iframe');
             iframe.id = 'iframe';
             iframe.style.display = 'visible';
-
+            console.log('iframe creado')
 
             // Esperar a que se cargue la página en el iframe
             iframe.onload = async function () {
-
+                console.log('entramos a la función')
                 // Capturar el contenido del iframe
                 var canvas = await html2canvas(iframe.contentWindow.document.body);
-
+                console.log('capturamos el canvas')
                 // Crear un PDF
                 var pdf = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
-
+                console.log('generamos el pdf')
                 // Agregar la imagen capturada al PDF
                 pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, canvas.width, canvas.height);
-
+                console.log('agregamos la imagen al pdf')
                 // Descargar el PDF
                 pdf.save('download.pdf');
-
+                console.log('guardamos el pdf')
                 // Eliminar el iframe
                 document.body.removeChild(iframe);
             };
