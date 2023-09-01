@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conceptos del estado de cuenta</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <style>
         @font-face {
             font-family: 'CircularStd';
@@ -128,14 +131,14 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container" id="conceptos">
         <div class="header">
-            <div class="logo">
-                <img src="https://www.nationalunity.com/img/logonu.png" alt="National Unity logo">
-            </div>
+            
             <div class="title">
                 <h1>Estado de cuenta: auto y certificado</h1>
+                <button id="captureButton">Capturar y Generar PDF</button>
             </div>
+
         </div>
 
         <div class="content">
@@ -167,11 +170,39 @@
         <div class="last-info">
             <p>Si tienes alguna duda sobre tu saldo, favor de comunicarte con nuestro <span>depto. de crédito y
                     cobranza</span></p>
+            
         </div>
+
+        
+        <script>
+            
+            document.getElementById("captureButton").addEventListener("click", async function () {
+    
+                console.log("capturando");
+                
+                //Generamos el PDF
+                //Forzar el PDF a ser tamaño A4 por consistencia
+                const pdf = new jsPDF('p', 'pt', 'a4');
+                const margin = 40;
+                //Generamos el canvas
+                //windowWidth y Height afectan el tamaño de la ventana, modificar para obtener distintos resultados de la vista del PDF
+                const canvas = await html2canvas(document.body, {scale: 1, windowWidth: 700, windowHeight: 900});
+                //Creamos la imagen
+                const img = canvas.toDataURL("image/png");
+                const imgProperties = pdf.getImageProperties(img);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+                //Añadimos la imagen
+                pdf.addImage(img, "PNG", margin, margin, pdfWidth - 2 * margin, pdfHeight - 2 * margin);
+                //Guardamos
+                pdf.save('download.pdf');
+                    
+            });
+        </script>
     </div>
 
     <div class="footer">
-
+        
     </div>
 </body>
 

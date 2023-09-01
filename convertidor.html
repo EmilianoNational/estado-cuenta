@@ -7,7 +7,7 @@
     <title>Captura de Página HTML a PDF</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 
 </head>
 
@@ -15,6 +15,7 @@
     <button id="captureButton">Capturar y Generar PDF</button>
 
     <script>
+        //async function generarPdf (){
         document.getElementById("captureButton").addEventListener("click", async function () {
 
             console.log("capturando");
@@ -25,24 +26,34 @@
             // Crear un iframe oculto para cargar la página externa
             var iframe = document.createElement('iframe');
             iframe.id = 'iframe';
-            iframe.style.display = 'visible';
-            console.log('iframe creado')
+            //iframe.style.display = 'visible';
+            iframe.src = externalPageUrl;
+            //console.log('iframe creado')
+            document.body.appendChild(iframe);
+            //console.log('iframe content window: ' + iframe.contentWindow)
 
             // Esperar a que se cargue la página en el iframe
             iframe.onload = async function () {
-                console.log('entramos a la función')
+                //console.log('entramos a la función')
+                
+                const margin = 40;
                 // Capturar el contenido del iframe
-                var canvas = await html2canvas(iframe.contentWindow.document.body);
-                console.log('capturamos el canvas')
+                const canvas = await html2canvas(iframe.contentWindow.document.body, {scale: 1});
+                //console.log('capturamos el canvas')
                 // Crear un PDF
-                var pdf = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
-                console.log('generamos el pdf')
+                const pdf = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
+                const img = canvas.toDataURL("image/png");
+                const imgProperties = pdf.getImageProperties(img);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width;
+                //console.log('generamos el pdf')
                 // Agregar la imagen capturada al PDF
-                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, canvas.width, canvas.height);
-                console.log('agregamos la imagen al pdf')
+                //pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.addImage(img, "PNG", margin, margin, pdfWidth - 2 * margin, pdfHeight - 2 * margin);
+                //console.log('agregamos la imagen al pdf')
                 // Descargar el PDF
                 pdf.save('download.pdf');
-                console.log('guardamos el pdf')
+                //console.log('guardamos el pdf')
                 // Eliminar el iframe
                 document.body.removeChild(iframe);
             };
